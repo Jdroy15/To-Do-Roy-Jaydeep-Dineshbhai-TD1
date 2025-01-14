@@ -13,3 +13,19 @@ Perfect for users seeking a minimalistic approach to staying productive.
 if __name__ == "__main__"
 Purpose: Ensures the application runs only when executed directly (not imported as a module).
 Creates an instance of the TodoList class (app) and calls its run method to start the application.
+
+# To Run the Todo List Application
+# Clone the Repository
+Download the project to your local machine:
+git clone https://github.com/Jdroy15/To-Do-Roy_Jaydeep-Dineshbhai.git
+
+# Navigate to the Project Directory
+Move into the directory containing the project files:
+cd To-Do-Roy_Jaydeep-Dineshbhai
+
+# Run the Application
+Execute the script using Python:
+python todo.py
+
+# Follow the On-Screen Instructions
+Use the menu options displayed to manage your tasks.
