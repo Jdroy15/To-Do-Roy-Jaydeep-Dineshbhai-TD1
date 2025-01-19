@@ -1,0 +1,9 @@
+Changes made:
+
+    1. Added a due_date field:
+        Users can specify a due date when adding a task.
+        The due date is parsed and stored in datetime.date format for consistency.
+
+    2. Improved task display:
+        When viewing tasks, the due date is shown alongside the task name and status.
+        If no due date is provided, it defaults to "No due date."

@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class TodoList:
     def __init__(self):
         self.tasks = []
@@ -12,11 +14,21 @@ class TodoList:
 
     def add_task(self):
         task_name = input("Enter the task: ").strip()
-        if task_name:
-            self.tasks.append({"task": task_name, "completed": False})
-            print(f"Task '{task_name}' added!")
-        else:
+        if not task_name:
             print("Task cannot be empty.")
+            return
+
+        due_date_input = input("Enter the due date (YYYY-MM-DD) or leave blank for no due date: ").strip()
+        due_date = None
+        if due_date_input:
+            try:
+                due_date = datetime.strptime(due_date_input, "%Y-%m-%d").date()
+            except ValueError:
+                print("Invalid date format. Please use YYYY-MM-DD.")
+                return
+
+        self.tasks.append({"task": task_name, "completed": False, "due_date": due_date})
+        print(f"Task '{task_name}' added!")
 
     def view_tasks(self):
         if not self.tasks:
@@ -25,7 +37,8 @@ class TodoList:
         print("\nYour Tasks:")
         for index, task in enumerate(self.tasks, start=1):
             status = "✔ Done" if task["completed"] else "✘ Pending"
-            print(f"{index}. {task['task']} - {status}")
+            due_date = task["due_date"].strftime("%Y-%m-%d") if task["due_date"] else "No due date"
+            print(f"{index}. {task['task']} - {status} (Due: {due_date})")
 
     def complete_task(self):
         self.view_tasks()
